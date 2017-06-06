@@ -25,9 +25,17 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js'
     },
+    // Used for unit testing
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     externals: {
         React: 'react',
-        ReactDOM: 'react-dom'
+        ReactDOM: 'react-dom',
+        // These help enzyme testing framework work properly.
+        'cheerio': 'window',
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
     },
     module: {
         rules: [{
@@ -70,6 +78,15 @@ module.exports = {
         {
             test: /\.svg$/,
             loader: 'svg-url-loader?noquotes'
+        }],
+        // Used for Mocha test setup
+        loaders: [{
+            test: /\.jsx?$/,
+            exclude: /(node_modules|bower_components)/,
+            loader: 'babel',
+            query: {
+                presets: ['react', 'es2015', 'stage-0'],
+            },
         }]
     },
     plugins: [
