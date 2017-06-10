@@ -9,7 +9,7 @@
     "deploy": "touch build/.nojekyll && gh-pages -t -d build -m \"Build for $(git log --pretty=format:%H -n1)\"",
     "lint": "eslint . --ext .js,.jsx",
     "start": "webpack-dev-server",
-    "test": "npm run lint && npm run build"
+    "test": "npm run lint && npm run build && tap test/*.js"
   },
   "author": "Massachusetts Institute of Technology",
   "license": "BSD-3-Clause",
