@@ -10,6 +10,7 @@ tap.test('green-flag renders active state', t => {
   //         active={true}
   //     />
   // );
+
   // TODO: Determine how to use snapshots in tap. May need to import jest or find another third party lib
   // for snaposhots.
   // This is jest code below.
@@ -28,6 +29,7 @@ tap.test('green-flag triggers onclick when active', t => {
   //         onClick={onClick}
   //     />
   // );
+
   // TODO: Determine if simulate is provided by jest and if i need to find an alternative utility or if i can
   // use tap.
   // component.find('img').simulate('click');
